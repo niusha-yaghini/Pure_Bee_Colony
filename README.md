@@ -7,7 +7,8 @@ abc class is were the algorithm starts, with bees
 bee class is actually represents each solution that has data and fitness
 
 "employed bees":
-1- a list named population will pass to "employee_bees" function, this is for recognizing that if we are in first iteration of algorithm or not, if it was empty, it means we are in first itration, and we make some random solutions (bees) (in amount of "population number"), if it was not empty, it means it's not our first iteration so we skip making new bees part
+0- a list named population will be checked before coming to this function, if it was empty this function will run and it means we are in the begining of our algorithm, if it was not empty it means it is not our first iteration, and algorithm must go to "onlooker_bees" part and not here.
+1- we make some random solutions (bees) (in amount of "population number"), if it was not empty, it means it's not our first iteration so we skip making new bees part
 2- for each "bee" we do the "cross-over" and "mutation", one time, then we calculate the validality of our "new_bee" and the "current_bee" in specific circumstances, we replace the "current_bee" to "new_bee"
 
     how to do "cross-over":

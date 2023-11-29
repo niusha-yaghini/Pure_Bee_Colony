@@ -22,7 +22,8 @@ def Bee_Colony_Algorithm():
         print(f"iteration number {i}: {currentTime}")
 
         ABC = Artificial_Bee_Colony.ABC_algorithm(demands_amount, demands, stations_amount, stations, blocks_amount, blocks, employed_bees_num, onlooker_bees_num, max_improvement_try, pc, pm, k_tournomet_percent, percedure_type)
-        ABC.employed_bees(population)
+        if(len(population) == 0):
+            ABC.employed_bees(population)
         ABC.onlooker_bees(population)
         best_bee_of_iteration, best_fitness_of_iteration = ABC.finding_best_bee(population)
         # ABC.validality_amount(population)

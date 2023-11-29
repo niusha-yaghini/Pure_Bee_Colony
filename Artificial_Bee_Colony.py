@@ -29,10 +29,10 @@ class ABC_algorithm():
         # do the improvement-try once on each of them
         # return the made answers
         
-        if(len(population) == 0):
-            for i in range(self.employed_bees_num):
-                bee = self._making_bee()
-                population.append(bee)
+        # if(len(population) == 0):
+        for i in range(self.employed_bees_num):
+            bee = self._making_bee()
+            population.append(bee)
             
         # we try for improvement one time for each bee, if change happens we add one to improvement-try property of that bee
         for bee in population:
@@ -144,10 +144,14 @@ class ABC_algorithm():
     def scout_bees(self, population):
         delete_bees = []
         new_bees = []
+        flag_one_delete = False
         for bee in population:
-            if(bee.improvement_try >= self.max_improvement_try):
-                delete_bees.append(bee)
-                new_bees.append(self._making_bee())
+            if(flag_one_delete == False):
+                if(bee.improvement_try >= self.max_improvement_try):
+                    delete_bees.append(bee)
+                    new_bees.append(self._making_bee())
+                    flag_one_delete = True
+                
         for i in range(len(delete_bees)):
             population.remove(delete_bees[i])
             population.append(new_bees[i])
